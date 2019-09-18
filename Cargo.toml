@@ -1,0 +1,17 @@
+[package]
+name = "miniremotery"
+version = "0.1.0"
+authors = ["N/A <N/A>"]
+edition = "2018"
+build = "build.rs"
+
+[lib]
+name = "miniremotery"
+
+[dependencies]
+strum = "0.15"
+strum_macros = "0.15"
+num_enum = "0.4"
+
+[build-dependencies]
+cc = "1.0"
