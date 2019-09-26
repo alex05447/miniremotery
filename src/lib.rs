@@ -39,12 +39,12 @@
 //! [`Remotery::initialize`]: struct.Remotery.html#method.initialize
 //! [`Remotery::scope`]: struct.Remotery.html#method.scope
 
-use std::ptr;
 use std::ffi::CString;
-use std::os::raw::{c_void, c_uint, c_char};
+use std::os::raw::{c_char, c_uint, c_void};
+use std::ptr;
 
-extern crate strum;
 extern crate num_enum;
+extern crate strum;
 
 #[macro_use]
 extern crate strum_macros;
@@ -57,8 +57,7 @@ pub use strum::EnumMessage;
 /// Flags which determine how the timing data for the profiled scopes is aggregated.
 #[allow(non_camel_case_types)]
 #[repr(u32)]
-pub enum rmtSampleFlags
-{
+pub enum rmtSampleFlags {
     // Default behaviour
     RMTSF_None = 0,
 
@@ -93,9 +92,7 @@ impl Remotery {
     pub fn initialize() -> Result<Remotery, rmtError> {
         let mut instance = ptr::null_mut();
 
-        let error = unsafe {
-            _rmt_CreateGlobalInstance(&mut instance)
-        };
+        let error = unsafe { _rmt_CreateGlobalInstance(&mut instance) };
 
         if error != rmtError::RMT_ERROR_NONE as u32 {
             Err(error::u32_to_rmtError(error))

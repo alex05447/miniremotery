@@ -3,14 +3,11 @@ use std::convert::TryFrom;
 use num_enum::TryFromPrimitive;
 
 #[allow(non_camel_case_types)]
-
 #[derive(TryFromPrimitive)] // num_enum
 #[derive(EnumMessage)] // strum
 #[repr(u32)]
-pub enum rmtError
-{
+pub enum rmtError {
     // >>> START REMOTERY ERRORS
-
     #[strum(message = "No error")]
     RMT_ERROR_NONE = 0,
     #[strum(message = "Not an error but an internal message to calling code")]

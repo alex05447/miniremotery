@@ -1,9 +1,9 @@
 use cc;
 
 fn main() {
-	let mut config = cc::Build::new();
+    let mut config = cc::Build::new();
 
-	let path = "external/lib/Remotery.c";
+    let path = "external/lib/Remotery.c";
 
     config.file(path);
 
