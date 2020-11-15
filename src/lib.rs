@@ -48,7 +48,7 @@ extern crate strum_macros;
 use {
     std::ffi::CString,
     std::os::raw::{c_char, c_uint, c_void},
-    std::ptr
+    std::ptr,
 };
 
 pub use crate::error::rmtError;

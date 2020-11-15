@@ -1,7 +1,4 @@
-use {
-    std::convert::TryFrom,
-    num_enum::TryFromPrimitive
-};
+use {num_enum::TryFromPrimitive, std::convert::TryFrom};
 
 #[allow(non_camel_case_types)]
 #[derive(TryFromPrimitive)] // num_enum
@@ -90,17 +87,29 @@ pub enum rmtError {
     // CUDA error messages
     #[strum(message = "This indicates that the CUDA driver is in the process of shutting down")]
     RMT_ERROR_CUDA_DEINITIALIZED = 35,
-    #[strum(message = "This indicates that the CUDA driver has not been initialized with cuInit() or that initialization has failed")]
+    #[strum(
+        message = "This indicates that the CUDA driver has not been initialized with cuInit() or that initialization has failed"
+    )]
     RMT_ERROR_CUDA_NOT_INITIALIZED = 36,
-    #[strum(message = "This most frequently indicates that there is no context bound to the current thread")]
+    #[strum(
+        message = "This most frequently indicates that there is no context bound to the current thread"
+    )]
     RMT_ERROR_CUDA_INVALID_CONTEXT = 37,
-    #[strum(message = "This indicates that one or more of the parameters passed to the API call is not within an acceptable range of values")]
+    #[strum(
+        message = "This indicates that one or more of the parameters passed to the API call is not within an acceptable range of values"
+    )]
     RMT_ERROR_CUDA_INVALID_VALUE = 38,
-    #[strum(message = "This indicates that a resource handle passed to the API call was not valid")]
+    #[strum(
+        message = "This indicates that a resource handle passed to the API call was not valid"
+    )]
     RMT_ERROR_CUDA_INVALID_HANDLE = 39,
-    #[strum(message = "The API call failed because it was unable to allocate enough memory to perform the requested operation")]
+    #[strum(
+        message = "The API call failed because it was unable to allocate enough memory to perform the requested operation"
+    )]
     RMT_ERROR_CUDA_OUT_OF_MEMORY = 40,
-    #[strum(message = "This indicates that a resource handle passed to the API call was not valid")]
+    #[strum(
+        message = "This indicates that a resource handle passed to the API call was not valid"
+    )]
     RMT_ERROR_ERROR_NOT_READY = 41,
 
     // Direct3D 11 error messages
@@ -108,7 +117,9 @@ pub enum rmtError {
     RMT_ERROR_D3D11_FAILED_TO_CREATE_QUERY = 42,
 
     // OpenGL error messages
-    #[strum(message = "Generic OpenGL error, no need to expose detail since app will need an OpenGL error callback registered")]
+    #[strum(
+        message = "Generic OpenGL error, no need to expose detail since app will need an OpenGL error callback registered"
+    )]
     RMT_ERROR_OPENGL_ERROR = 43,
 
     #[strum(message = "Unknown CUDA error")]
