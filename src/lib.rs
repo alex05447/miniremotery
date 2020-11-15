@@ -115,7 +115,7 @@ impl Remotery {
     ///
     /// [`begin_cpu_sample`]: #method.begin_cpu_sample
     /// [`end_cpu_sample`]: #method.end_cpu_sample
-    pub fn scope(name: &str, flags: rmtSampleFlags) -> RemoteryScope {
+    pub fn scope(name: Option<&str>, flags: rmtSampleFlags) -> RemoteryScope {
         Remotery::begin_cpu_sample(name, flags);
         RemoteryScope {}
     }
@@ -124,8 +124,8 @@ impl Remotery {
     /// Must be paired with a later call to [`end_cpu_sample`].
     ///
     /// [`end_cpu_sample`]: #method.end_cpu_sample
-    pub fn begin_cpu_sample(name: &str, flags: rmtSampleFlags) {
-        if let Ok(name) = CString::new(name) {
+    pub fn begin_cpu_sample(name: Option<&str>, flags: rmtSampleFlags) {
+        if let Ok(name) = CString::new(name.unwrap_or("<unnamed>")) {
             unsafe {
                 _rmt_BeginCPUSample(name.as_ptr(), flags as u32, ptr::null_mut());
             }
