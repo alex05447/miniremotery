@@ -1,4 +1,5 @@
-//! Minimal wrapper around the [`Remotery`](https://github.com/Celtoys/Remotery) real-time CPU profiler.
+//! Minimal Rust wrapper around the [`Remotery`](https://github.com/Celtoys/Remotery) real-time CPU profiler.
+//!
 //! GPU profiling is not supported.
 //!
 //! Inspired by (seemingly outdated and abandoned) [`remotery`](https://docs.rs/remotery/0.1.2/remotery/),
@@ -39,20 +40,18 @@
 //! [`Remotery::initialize`]: struct.Remotery.html#method.initialize
 //! [`Remotery::scope`]: struct.Remotery.html#method.scope
 
-use std::ffi::CString;
-use std::os::raw::{c_char, c_uint, c_void};
-use std::ptr;
-
-extern crate num_enum;
-extern crate strum;
+mod error;
 
 #[macro_use]
 extern crate strum_macros;
 
-mod error;
+use {
+    std::ffi::CString,
+    std::os::raw::{c_char, c_uint, c_void},
+    std::ptr
+};
 
 pub use crate::error::rmtError;
-pub use strum::EnumMessage;
 
 /// Flags which determine how the timing data for the profiled scopes is aggregated.
 #[allow(non_camel_case_types)]

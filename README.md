@@ -1,6 +1,6 @@
 # miniremotery
 
-Minimal wrapper around the [`Remotery`](https://github.com/Celtoys/Remotery) real-time CPU profiler.
+Minimal Rust wrapper around the [`Remotery`](https://github.com/Celtoys/Remotery) real-time CPU profiler.
 GPU profiling is not supported.
 
 Inspired by (seemingly outdated and abandoned) [`remotery`](https://docs.rs/remotery/0.1.2/remotery/),

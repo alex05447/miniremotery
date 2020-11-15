@@ -1,6 +1,7 @@
-use std::convert::TryFrom;
-
-use num_enum::TryFromPrimitive;
+use {
+    std::convert::TryFrom,
+    num_enum::TryFromPrimitive
+};
 
 #[allow(non_camel_case_types)]
 #[derive(TryFromPrimitive)] // num_enum
@@ -122,11 +123,5 @@ pub enum rmtError {
 
 #[allow(non_snake_case)]
 pub(crate) fn u32_to_rmtError(error: u32) -> rmtError {
-    let result = rmtError::try_from(error);
-
-    if let Ok(result) = result {
-        result
-    } else {
-        rmtError::RMT_ERROR_UNKNOWN
-    }
+    rmtError::try_from(error).unwrap_or(rmtError::RMT_ERROR_UNKNOWN)
 }
