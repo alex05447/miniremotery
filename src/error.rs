@@ -3,6 +3,7 @@ use {num_enum::TryFromPrimitive, std::convert::TryFrom};
 #[allow(non_camel_case_types)]
 #[derive(TryFromPrimitive)] // num_enum
 #[derive(EnumMessage)] // strum
+#[derive(Debug)]
 #[repr(u32)]
 pub enum rmtError {
     // >>> START REMOTERY ERRORS
